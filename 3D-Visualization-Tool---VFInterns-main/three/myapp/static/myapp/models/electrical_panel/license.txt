@@ -1,0 +1,11 @@
+Model Information:
+* title:	Electrical panel
+* source:	https://sketchfab.com/3d-models/electrical-panel-54970d4284da4575a938d0bdfb6f021c
+* author:	efimknife (https://sketchfab.com/efimknife)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Electrical panel" (https://sketchfab.com/3d-models/electrical-panel-54970d4284da4575a938d0bdfb6f021c) by efimknife (https://sketchfab.com/efimknife) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

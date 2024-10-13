@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design meta tag -->
+    <title>Floor View</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="{% static 'myapp/styles.css' %}">
+    <!-- Link to external icon library for UI icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Button for toggling the sidebar -->
+    <div class="btn">
+        <span class="bx bx-chevron-right toggle"></span> <!-- Chevron icon for the button -->
+    </div>
+
+    <!-- Sidebar for navigation and figure controls -->
+    <div class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <!-- Vodafone logo -->
+                    <img src="{% static 'myapp/images/vodafone_logo.png' %}" alt="Vodafone Logo">
+                </span>
+                <div class="text header-text">
+                    <span class="name"> 3D </span> <!-- Text title -->
+                    <span class="profession"> Floor Plan </span> <!-- Subtitle text -->
+                </div>
+            </div>
+        </header>
+
+        <!-- Section for adding a new figure -->
+        <div class="figure-controls">
+            <!-- Button to toggle figure addition form -->
+            <button id="figureType">Add a figure</button>
+
+            <!-- Form for adding a new figure -->
+            <form method="POST" id="figureData" action="{% url 'add_figure' %}" style="display: none;">
+                {% csrf_token %} <!-- CSRF token for security -->
+                <p class="hidden">
+                    <label for="id_floor">Floor:</label>
+                    <select required id="id_floor" name="floor_id">
+                        {% for thefloor in floors %}
+                            <!-- Select the current floor by default -->
+                            <option value="{{ thefloor.id }}" {% if thefloor.id == floor.id %}selected{% endif %}>{{ thefloor.name }} - {{ thefloor.id }}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+                <!-- Dropdown for selecting the figure type -->
+                <p>
+                    <label for="figure_name">Figure Type:</label>
+                    <select id="figure_name" name="figure_name" required>
+                        {% for key, value in figure_name_choices %}
+                            <!-- Select "rack" as default -->
+                            <option value="{{ key }}" {% if key == "rack" %}selected{% endif %}>{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </p>
+                <!-- Input fields for figure properties -->
+                <p>
+                    <label for="x_position">X Position:</label>
+                    <input type="number" id="x_position" name="x_position" min="0" max="{{ floor.width }}" step="any" required>
+                </p>
+                <p>
+                    <label for="y_position">Y Position:</label>
+                    <input type="number" id="y_position" name="y_position" min="0" max="{{ floor.length }}" step="any" required>
+                </p>
+                <p>
+                    <label for="height">Height:</label>
+                    <input type="number" id="height" name="height" min="0" step="any" required>
+                </p>
+                <p>
+                    <label for="width">Width:</label>
+                    <input type="number" id="width" name="width" min="0" step="any" required>
+                </p>
+                <p>
+                    <label for="depth">Depth:</label>
+                    <input type="number" id="depth" name="depth" min="0" step="any" required>
+                </p>
+                <p>
+                    <label for="figure_type">Figure Name:</label>
+                    <input type="text" id="figure_type" name="figure_type" step="any" required>
+                </p>
+                <p>
+                    <label for="figure_color">Color:</label>
+                    <input type="text" id="figure_color" name="figure_color" value="None">
+                </p>
+                <p>
+                    <label for="angle">Angle:</label>
+                    <input type="number" id="angle" name="angle" min="0" max="360" step="90" value="0">
+                </p>
+                <!-- Hidden input to pass the floor ID -->
+                <input type="hidden" name="floor_id" value="{{ floor.id }}">
+                <button id="addfigure" type="submit">Add Figure</button>
+            </form>
+        </div>
+
+        <!-- Form for updating floor details -->
+        <form method="POST" action="{% url 'update_floor' %}" class="floor-controls">
+            {% csrf_token %} <!-- CSRF token for security -->
+            <!-- Input fields for floor properties -->
+            <label for="floorWidth">Floor Width: </label>
+            <input type="number" id="floorWidth" name="width" min="0" value="{{ floor.width }}" step="any">
+            <label for="floorHeight">Floor Height: </label>
+            <input type="number" id="floorHeight" name="length" min="0" value="{{ floor.length }}" step="any">
+            <label for="gridX">Grid X: </label>
+            <input type="number" id="gridX" name="gridx" min="0" value="{{ floor.gridx }}" step="any">
+            <label for="gridY">Grid Y: </label>
+            <input type="number" id="gridY" name="gridy" min="0" value="{{ floor.gridy }}" step="any">
+            <label for="floorColor">Floor Color: </label>
+            <input type="color" id="floorColor" name="color" value="#{{ floor.color }}">
+            <!-- Hidden input to pass the floor ID -->
+            <input type="hidden" name="floor_id" value="{{ floor.pk }}">
+            <button id="updateFloor" type="submit">Update Floor</button>
+        </form>
+    </div>
+
+    <!-- 3D rendering container -->
+    <div id="container3D"></div>
+    
+    <!-- Sidebar for figure controls and editing -->
+    <div class="sidebar" id="rightSideBar" style="display: none;">
+        <span id="closeSidebar" class="close-btn">&times;</span> <!-- Close button -->
+        <h3 id="figureNameDisplay"></h3> <!-- Display selected figure name -->
+        <div id="controls">
+            <button id="deleteFigure">Delete</button><br>
+            <button id="editFigure">Edit</button><br>
+            <button id="viewFigure">View Info</button>
+        </div>
+        <!-- Form for editing figure properties -->
+        <form id="editForm" style="display: none;">
+            <!-- Input fields for figure properties -->
+            <div id="whole_edit_x_position" class="form-group">
+                <label for="edit_x_position">X Position:</label>
+                <input type="number" id="edit_x_position" name="x_position" min="0" max="{{ floor.width }}" step="any" required><br>
+            </div>
+            <div id="whole_edit_y_position" class="form-group">
+                <label for="edit_y_position">Y Position:</label>
+                <input type="number" id="edit_y_position" name="y_position" min="0" max="{{ floor.length }}" step="any" required><br>
+            </div>
+            <div id="whole_edit_width" class="form-group">
+                <label for="edit_width">Width:</label>
+                <input type="number" id="edit_width" name="width" min="0" step="any" required><br>
+            </div>
+            <div id="whole_edit_height" class="form-group">
+                <label for="edit_height">Height:</label>
+                <input type="number" id="edit_height" name="height" min="0" step="any" required><br>
+            </div>
+            <div id="whole_edit_depth" class="form-group">
+                <label for="edit_depth">Depth:</label>
+                <input type="number" id="edit_depth" name="depth" min="0" step="any" required><br>
+            </div>
+            <div id="whole_edit_angle" class="form-group">
+                <label for="edit_angle">Angle:</label>
+                <input type="number" id="edit_angle" name="angle" min="0" max="270" step="90" required><br>
+            </div>
+            <div id="whole_edit_color" class="form-group">
+                <label for="edit_color">Color:</label>
+                <input type="text" id="edit_color" name="color" value="None">
+            </div>
+            <!-- Button to save the changes made to the figure -->
+            <button id="saveChanges" type="submit">Save Changes</button>
+        </form>
+    </div>
+
+    <!-- Script containing floor and figure data for the 3D view -->
+    <script id="floor-data" type="application/json">
+        {
+            "floor": {{ floor_json|safe }},
+            "figures": {{ figures_json|safe }}
+        }
+    </script>
+    <!-- Link to the main JavaScript file for handling 3D rendering and interactions -->
+    <script type="module" src="{% static 'myapp/script.js' %}" defer></script>
+</body>
+</html>

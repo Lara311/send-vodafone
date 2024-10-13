@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Floor</title>
+    <style>
+        /* Center elements horizontally and vertically */
+        .centered {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh; /* Full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+        nav {
+            width: 100%; /* Full width */
+            background-color: red;
+            padding: 10px 0;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            position: sticky; /* Fixed at the top of the viewport */
+            top: 0;
+            z-index: 1000; /* Ensure it's on top of other elements */
+        }
+        nav a {
+            margin-left: 20px; /* Space between the logo and the left edge */
+        }
+        nav img {
+            height: 40px; /* Set height for the logo image */
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the form elements */
+        }
+        select {
+            width: 300px;
+            padding: 10px;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+        option {
+            width: 100%; /* Ensure options take full width */
+        }
+        .placeholder {
+            color: gray; /* Color for placeholder text */
+        }
+        button {
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 25px; /* Rounded corners */
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Smooth color transition */
+        }
+        button:hover {
+            background-color: darkred; /* Darker color on hover */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a>
+            <!-- Load Vodafone logo image from the static directory -->
+            <img src="{% static 'myapp/images/vodafone_logo.png' %}" alt="Vodafone Logo">
+        </a>
+    </nav>
+    <h2 class="centered">Select a Floor:</h2>
+    <!-- Form for selecting a floor -->
+    <form id="floorForm" method="get" action="#">
+        <select name="floor_id" id="floorSelect">
+            <!-- Placeholder option, initially selected and disabled -->
+            <option style="display: none;" value="" class="placeholder" disabled selected>Select a floor</option>
+            {% for floor in floors %}
+                <!-- Iterate over floors and create an option for each -->
+                <option value="{{ floor.id }}" data-site="{{ floor.site_name }}" data-floor="{{ floor.name }}">
+                    {{ floor.site_name }} - {{ floor.name }} - {{ floor.id }}
+                </option>
+            {% endfor %}
+        </select>
+        <!-- Submit button to select the floor -->
+        <button type="submit">Select</button>
+    </form>
+
+    <script>
+        document.getElementById('floorForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission to handle with JavaScript
+
+            var select = document.getElementById('floorSelect');
+            var selectedOption = select.options[select.selectedIndex]; // Get the selected option
+
+            // Check if a valid option is selected
+            if (selectedOption.value) {
+                var siteName = selectedOption.getAttribute('data-site');
+                var floorName = selectedOption.getAttribute('data-floor');
+
+                // Construct the new URL using the selected siteName and floorName
+                var newUrl = "{% url 'floor_view' site_name='__site_name__' floor_name='__floor_name__' %}"
+                    .replace('__site_name__', encodeURIComponent(siteName)) // Replace placeholder with actual siteName
+                    .replace('__floor_name__', encodeURIComponent(floorName)); // Replace placeholder with actual floorName
+
+                // Redirect the user to the new URL
+                window.location.href = newUrl;
+            }
+        });
+    </script>
+</body>
+</html>

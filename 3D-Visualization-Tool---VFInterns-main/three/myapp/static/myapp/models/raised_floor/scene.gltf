@@ -1,0 +1,501 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 51250,
+      "max": [
+        8.021653175354004,
+        8.021653175354004,
+        0.9186351895332336
+      ],
+      "min": [
+        -0.14763779938220978,
+        -0.14763779938220978,
+        -4.8913249074992657e-14
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 615000,
+      "componentType": 5126,
+      "count": 51250,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 51250,
+      "max": [
+        2.1459972858428955,
+        0.9169946312904358
+      ],
+      "min": [
+        -2.1459972858428955,
+        -0.14599737524986267
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 195750,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1230000,
+      "componentType": 5126,
+      "count": 1025,
+      "max": [
+        7.900262355804443,
+        7.900262355804443,
+        0.5971128344535828
+      ],
+      "min": [
+        -0.02624671906232834,
+        -0.02624671906232834,
+        0.04757218435406685
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1242300,
+      "componentType": 5126,
+      "count": 1025,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 410000,
+      "componentType": 5126,
+      "count": 1025,
+      "max": [
+        2.0262467861175537,
+        0.597112774848938
+      ],
+      "min": [
+        -2.0262467861175537,
+        -0.022730324417352676
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 783000,
+      "componentType": 5125,
+      "count": 2400,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1254600,
+      "componentType": 5126,
+      "count": 384,
+      "max": [
+        -4.3760552406311035,
+        -31.669925689697266,
+        1.0531495809555054
+      ],
+      "min": [
+        -12.250070571899414,
+        -39.54262924194336,
+        0.9186351895332336
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1259208,
+      "componentType": 5126,
+      "count": 384,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 418200,
+      "componentType": 5126,
+      "count": 384,
+      "max": [
+        39.54262924194336,
+        39.54262924194336
+      ],
+      "min": [
+        -39.54262924194336,
+        -39.54262924194336
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 792600,
+      "componentType": 5125,
+      "count": 576,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1,
+      "max": [
+        0.0
+      ],
+      "min": [
+        0.0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 1,
+      "max": [
+        0.0,
+        0.7071067690849304,
+        0.7071067690849304,
+        8.659560603426554e-17
+      ],
+      "min": [
+        0.0,
+        0.7071067690849304,
+        0.7071067690849304,
+        8.659560603426554e-17
+      ],
+      "type": "VEC4"
+    }
+  ],
+  "animations": [
+    {
+      "channels": [
+        {
+          "sampler": 0,
+          "target": {
+            "node": 4,
+            "path": "rotation"
+          }
+        }
+      ],
+      "name": "Take 001",
+      "samplers": [
+        {
+          "input": 12,
+          "interpolation": "LINEAR",
+          "output": 13
+        }
+      ]
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Bimstore UK (https://sketchfab.com/Revitspace)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/kingspan-access-floors-pedestal-d900584865a841699d23102fdcbe15b7",
+      "title": "Kingspan Access Floors - Pedestal"
+    },
+    "generator": "Sketchfab-12.62.1",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 794904,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 421272,
+      "byteOffset": 794904,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1263816,
+      "byteOffset": 1216176,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 4,
+      "byteOffset": 2479992,
+      "name": "floatBufferViews"
+    },
+    {
+      "buffer": 0,
+      "byteLength": 16,
+      "byteOffset": 2479996,
+      "byteStride": 16,
+      "name": "floatBufferViews"
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 2480012,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Material_27_baseColor.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Zinc",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.9046611744,
+          0.6239603917,
+          0.1946178304,
+          1.0
+        ],
+        "roughnessFactor": 0.4
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Zinc_Thread",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.9046611744,
+          0.6239603917,
+          0.1946178304,
+          1.0
+        ],
+        "roughnessFactor": 0.6
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Material_27",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "roughnessFactor": 0.65
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Flooring_KingspanAccessFloors_Pedestal_Europed_Grid Europed [222475]_Zinc_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Flooring_KingspanAccessFloors_Pedestal_Europed_Grid Europed [222475]_Zinc Thread_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Generic Models 1 Generic Models 1 [293173]_Material #27_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 9,
+            "POSITION": 8,
+            "TEXCOORD_0": 10
+          },
+          "indices": 11,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        0.01666666753590107,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        3.700743608425998e-18,
+        -0.01666666753590107,
+        0.0,
+        0.0,
+        0.01666666753590107,
+        3.700743608425998e-18,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "7a7c1f33efe743f68e74ac8600c9ea45.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "Object_2"
+    },
+    {
+      "children": [
+        4,
+        7
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        5,
+        6
+      ],
+      "name": "Flooring_KingspanAccessFloors_Pedestal_Europed_Grid Europed [222475]",
+      "rotation": [
+        3.0908619663705394e-08,
+        0.7071068286895752,
+        0.7071068286895752,
+        -3.0908619663705394e-08
+      ],
+      "scale": [
+        12.0,
+        12.0,
+        12.0
+      ],
+      "translation": [
+        -52.51266098022461,
+        7.364989423452178e-14,
+        380.02337646484375
+      ]
+    },
+    {
+      "mesh": 0,
+      "name": "Flooring_KingspanAccessFloors_Pedestal_Europed_Grid Europed [222475]_Zinc_0"
+    },
+    {
+      "mesh": 1,
+      "name": "Flooring_KingspanAccessFloors_Pedestal_Europed_Grid Europed [222475]_Zinc Thread_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "name": "Generic Models 1 Generic Models 1 [293173]",
+      "rotation": [
+        -0.7071068286895752,
+        -0.0,
+        0.0,
+        0.7071068286895752
+      ],
+      "scale": [
+        12.0,
+        12.0,
+        12.0
+      ]
+    },
+    {
+      "mesh": 2,
+      "name": "Generic Models 1 Generic Models 1 [293173]_Material #27_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}

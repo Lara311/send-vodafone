@@ -1,0 +1,11 @@
+Model Information:
+* title:	Data center rack
+* source:	https://sketchfab.com/3d-models/data-center-rack-f178ec0a9c5f4605a5acbaaeb52dc721
+* author:	DAVID.3D.ART (https://sketchfab.com/david3dart)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Data center rack" (https://sketchfab.com/3d-models/data-center-rack-f178ec0a9c5f4605a5acbaaeb52dc721) by DAVID.3D.ART (https://sketchfab.com/david3dart) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
